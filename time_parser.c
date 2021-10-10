@@ -55,7 +55,7 @@ TIME_MOD get_mod(const char* str_mod, size_t len)
 
 TimeData parse_data(const char* str)
 {
-    char* prefix[20];
+    char prefix[20];
     int i;
     int split;
 
