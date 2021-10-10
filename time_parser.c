@@ -16,7 +16,7 @@ typedef enum TIME_MOD
 
 typedef struct TimeData 
 {
-    uint32_t    amount;
+    size_t      amount;
     TIME_MOD    mod;
 } TimeData;
 
@@ -78,7 +78,7 @@ TimeData parse_data(const char* str)
         };
     }
 
-    uint32_t to_i = atol(prefix);
+    size_t to_i = strtoull(prefix, NULL, 10);
 
     TimeData data = 
     {
@@ -90,11 +90,11 @@ TimeData parse_data(const char* str)
 } 
 
 // accepts time in the form of (int)prefix (string)suffix like 5 seconds and would output 5000
-uint32_t parse_time_ms(const char* str)
+size_t parse_time_ms(const char* str)
 {
     TimeData data = parse_data(str);
 
-    uint32_t value = 0;
+    size_t value = 0;
 
     switch(data.mod)
     {
@@ -107,11 +107,11 @@ uint32_t parse_time_ms(const char* str)
     return value;
 }
 
-uint32_t parse_time_sec(const char* str)
+size_t parse_time_sec(const char* str)
 {
     TimeData data = parse_data(str);
 
-    uint32_t value = 0;
+    size_t value = 0;
 
     switch(data.mod)
     {
@@ -124,11 +124,11 @@ uint32_t parse_time_sec(const char* str)
     return value;
 }
 
-uint32_t parse_time_min(const char* str)
+size_t parse_time_min(const char* str)
 {
     TimeData data = parse_data(str);
 
-    uint32_t value = 0;
+    size_t value = 0;
 
     switch(data.mod)
     {
