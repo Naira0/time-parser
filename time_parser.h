@@ -1,10 +1,14 @@
 #include <stdint.h>
 
-#ifndef TIME_PARSER
-#define TIME_PARSER
+#pragma once
 
-size_t parse_time_ms(const char* str);
-size_t parse_time_sec(const char* str);
-size_t parse_time_min(const char* str);
+typedef enum
+{
+    TVAL_MS,
+    TVAL_SEC,
+    TVAL_MIN
+} TIME_VALUE;
 
-#endif
+size_t parse_time(const char* str, TIME_VALUE return_value);
+
+void time_str(char* buff, size_t amount, TIME_VALUE amount_value);
