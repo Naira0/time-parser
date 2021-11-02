@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <math.h>
 #include <stdio.h>
 
 #include "time_parser.h"
@@ -176,7 +175,7 @@ void time_str(char* buff, size_t amount, TIME_VALUE amount_value)
 
     if(amount_value == TVAL_MS && amount < 1000)
     {
-        sprintf_s(buff, sizeof buff, "%zuMS", amount);
+        sprintf(buff, sizeof buff, "%zuMS", amount);
         return;
     }
 
